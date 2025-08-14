@@ -1,6 +1,13 @@
-# Se completará en el paso 7
-def main():
-    print("gendiff CLI: pendiente de implementación")
+import argparse
+from gendiff.generate_diff import generate_diff
 
-if __name__ == "__main__":
+def main():
+    parser = argparse.ArgumentParser(description='Calculadora de diferencias')
+    parser.add_argument('first_file')
+    parser.add_argument('second_file')
+    args = parser.parse_args()
+    diff = generate_diff(args.first_file, args.second_file)
+    print(diff)
+
+if __name__ == '__main__':
     main()
