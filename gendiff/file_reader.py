@@ -18,3 +18,18 @@ def read_file(file_path):
             return json.load(f)
         else:
             raise ValueError("Formato no soportado. Solo JSON o YAML.")
+
+
+import json
+import yaml
+from pathlib import Path
+
+def read_file(file_path):
+    ext = Path(file_path).suffix.lower()
+    with open(file_path) as f:
+        if ext == '.json':
+            return json.load(f)
+        elif ext in ['.yml', '.yaml']:
+            return yaml.safe_load(f)
+        else:
+            raise ValueError(f"Formato no soportado: {ext}")

@@ -6,8 +6,17 @@ def main():
     parser = argparse.ArgumentParser(
         description="Compares two configuration files and shows a difference."
     )
+    
+    # Argumentos posicionales
     parser.add_argument("first_file", help="First file to compare")
     parser.add_argument("second_file", help="Second file to compare")
+    
+    # Argumento opcional --format
+    parser.add_argument(
+        "-f", "--format",
+        default="stylish",  # formato por defecto
+        help="set format of output"
+    )
 
     args = parser.parse_args()
 
@@ -18,7 +27,7 @@ def main():
     # Generar diferencias
     diffs = generate_diff(data1, data2)
 
-    # Imprimir diferencias
+    # Imprimir diferencias (por ahora ignoramos el formato)
     if diffs:
         for line in diffs:
             print(line)
