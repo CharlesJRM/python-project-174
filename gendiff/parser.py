@@ -1,15 +1,19 @@
 import json
 import yaml
-import os
+from pathlib import Path
 
-def parse(filepath):
-    _, ext = os.path.splitext(filepath)
-    with open(filepath, 'r') as file:
-        content = file.read()
+def parse(content, file_path):
+    """
+    Parsea contenido en formato JSON o YAML.
 
-    if ext in ('.yaml', '.yml'):
-        return yaml.safe_load(content)
-    elif ext == '.json':
+    :param content: Texto del archivo.
+    :param file_path: Ruta al archivo (para detectar extensión).
+    :return: Objeto Python con el contenido parseado.
+    """
+    ext = Path(file_path).suffix.lower()
+    if ext == ".json":
         return json.loads(content)
+    elif ext in (".yml", ".yaml"):
+        return yaml.safe_load(content)
     else:
-        raise ValueError(f'Formato de archivo no soportado: {ext}')
+        raise ValueError(f"Formato no soportado: {ext}")

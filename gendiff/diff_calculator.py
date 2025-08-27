@@ -1,28 +1,43 @@
-def generate_diff(dict1, dict2, parent_key=""):
+def build_diff(data1, data2):
     """
-    Compara dos diccionarios y devuelve una lista de diferencias.
+    Construye la representación 'stylish' de diferencias entre dos dicts planos.
+    Reglas:
+      - Claves ordenadas alfabéticamente
+      - '  -' clave removida (o cambiada respecto al 2do archivo)
+      - '  +' clave agregada (o nuevo valor en el 2do archivo)
+      - '   ' clave sin cambios
     """
-    diffs = []
+    keys = sorted(set(data1.keys()) | set(data2.keys()))
+    lines = ["{"]
 
-    # Todas las claves de ambos diccionarios
-    keys = set(dict1.keys()) | set(dict2.keys())
+    def format_value(value):
+        if isinstance(value, bool):
+            return "true" if value else "false"
+        if value is None:
+            return "null"
+        # Para este paso (archivos planos), imprimimos str() sin comillas
+        return str(value)
 
-    for key in sorted(keys):
-        full_key = f"{parent_key}.{key}" if parent_key else key
+    for key in keys:
+        in1 = key in data1
+        in2 = key in data2
 
-        if key not in dict1:
-            diffs.append(f"Se agregó '{full_key}' con valor: {dict2[key]!r}")
-        elif key not in dict2:
-            diffs.append(f"Se eliminó '{full_key}'")
+        if in1 and not in2:
+            # Eliminado
+            lines.append(f"  - {key}: {format_value(data1[key])}")
+        elif not in1 and in2:
+            # Agregado
+            lines.append(f"  + {key}: {format_value(data2[key])}")
         else:
-            val1 = dict1[key]
-            val2 = dict2[key]
+            v1 = data1[key]
+            v2 = data2[key]
+            if v1 == v2:
+                # Sin cambios
+                lines.append(f"    {key}: {format_value(v1)}")
+            else:
+                # Cambiado
+                lines.append(f"  - {key}: {format_value(v1)}")
+                lines.append(f"  + {key}: {format_value(v2)}")
 
-            # Si ambos son diccionarios, comparar recursivamente
-            if isinstance(val1, dict) and isinstance(val2, dict):
-                diffs.extend(generate_diff(val1, val2, full_key))
-            # Si son diferentes, agregar actualización
-            elif val1 != val2:
-                diffs.append(f"Se actualizó '{full_key}'. Antes: {val1!r}, ahora: {val2!r}")
-
-    return diffs
+    lines.append("}")
+    return "\n".join(lines)
