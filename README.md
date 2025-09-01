@@ -11,6 +11,14 @@ git clone https://github.com/CharlesJRM/python-project-174.git
 cd python-project-174
 poetry install
 
+# Calculadora de Diferencias
+
+![GitHub Actions](https://github.com/CharlesJRM/python-project-174/workflows/Python%20package/badge.svg)
+[![Maintainability](https://api.codeclimate.com/v1/badges/qltcp_tCXHHD06IOhoPNQP/maintainability)](https://codeclimate.com/github/CharlesJRM/python-project-174/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/qltcp_tCXHHD06IOhoPNQP/test_coverage)](https://codeclimate.com/github/CharlesJRM/python-project-174/test_coverage)
+
+Proyecto para comparar archivos JSON y YML mostrando sus diferencias de manera clara.
+
 ## Demostracion ASCIINEMA
 
 Si grabas una demostración con **Asciinema**, puedes añadir:
