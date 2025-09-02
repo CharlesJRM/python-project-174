@@ -21,6 +21,6 @@ Proyecto para comparar archivos JSON y YML mostrando sus diferencias de manera c
 
 ## Demostracion ASCIINEMA
 
-Si grabas una demostración con **Asciinema**, puedes añadir:
+Demostración con **Asciinema**:
 ```markdown
-[![asciicast](https://asciinema.org/a/ID_DE_TU_GRABACION.svg)](https://asciinema.org/a/ID_DE_TU_GRABACION)
+[![asciicast](https://asciinema.org/a/PENDIENTEID_DE_TU_GRABACION.svg)](https://asciinema.org/a/ID_DE_TU_GRABACION)
