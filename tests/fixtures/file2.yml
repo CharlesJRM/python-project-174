@@ -1,6 +1,3 @@
-common:
-  setting1: Value 1
-  setting2: 200
-  setting3:
-    nested1: true
-    nested2: false
+timeout: 20
+verbose: true
+host: hexlet.io

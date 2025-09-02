@@ -1,37 +1,40 @@
 import json
+import yaml
+from gendiff.utils import to_str
 
 
-def format_value(value):
-    """Formatea valores para que coincidan con JSON (true/false para bool)."""
-    if isinstance(value, bool):
-        return str(value).lower()
-    return value
+def parse_file(path):
+    """Detecta el formato según la extensión y carga como dict."""
+    if path.endswith(('.yml', '.yaml')):
+        with open(path) as f:
+            return yaml.safe_load(f)
+    with open(path) as f:
+        return json.load(f)
 
 
 def generate_diff(file_path1, file_path2):
-    # Leer archivos JSON
-    with open(file_path1) as f1:
-        data1 = json.load(f1)
-    with open(file_path2) as f2:
-        data2 = json.load(f2)
+    dict1 = parse_file(file_path1)
+    dict2 = parse_file(file_path2)
 
-    # Todas las claves únicas ordenadas
-    all_keys = sorted(set(data1.keys()) | set(data2.keys()))
+    keys = sorted(set(dict1.keys()) | set(dict2.keys()))
+    diff_lines = ['{']
+    changes_found = False
 
-    diff_lines = ["{"]
-    for key in all_keys:
-        val1 = format_value(data1[key]) if key in data1 else None
-        val2 = format_value(data2[key]) if key in data2 else None
-
-        if key in data1 and key not in data2:
-            diff_lines.append(f"  - {key}: {val1}")
-        elif key not in data1 and key in data2:
-            diff_lines.append(f"  + {key}: {val2}")
-        elif val1 == val2:
-            diff_lines.append(f"    {key}: {val1}")
+    for key in keys:
+        if key in dict1 and key not in dict2:
+            changes_found = True
+            diff_lines.append(f"  - {key}: {to_str(dict1[key])}")
+        elif key not in dict1 and key in dict2:
+            changes_found = True
+            diff_lines.append(f"  + {key}: {to_str(dict2[key])}")
+        elif dict1[key] == dict2[key]:
+            diff_lines.append(f"    {key}: {to_str(dict1[key])}")
         else:
-            diff_lines.append(f"  - {key}: {val1}")
-            diff_lines.append(f"  + {key}: {val2}")
-    diff_lines.append("}")
+            changes_found = True
+            diff_lines.append(f"  - {key}: {to_str(dict1[key])}")
+            diff_lines.append(f"  + {key}: {to_str(dict2[key])}")
 
-    return "\n".join(diff_lines)
+    diff_lines.append('}')
+    if not changes_found:
+        return "{}"
+    return '\n'.join(diff_lines)

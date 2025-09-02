@@ -1,8 +1,7 @@
 def to_str(value):
-    if value is True:
-        return 'true'
-    if value is False:
-        return 'false'
+    """Convierte valores a las cadenas esperadas en stylish."""
+    if isinstance(value, bool):
+        return str(value).lower()  # True -> true, False -> false
     if value is None:
-        return 'null'
+        return "null"
     return str(value)

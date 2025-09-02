@@ -28,3 +28,4 @@ def test_generate_diff_yml():
 def test_generate_diff_identical_files():
     file1 = fixtures_path("file1.json")
     assert generate_diff(file1, file1) == "{}"
+"""Convierte valores a las cadenas esperadas en stylish."""

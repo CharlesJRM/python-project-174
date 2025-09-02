@@ -15,5 +15,5 @@ def test_gendiff_json():
         expected = f.read()
 
     result = generate_diff(file1, file2)
-    # Aquí comparamos con el contenido del archivo, no con la ruta
     assert normalize_diff(result) == normalize_diff(expected)
+
