@@ -2,7 +2,7 @@
 name = "hexlet-code"
 version = "0.1.0"
 description = "Calculadora de diferencias comparativo archivos JSON y YML"
-authors = ["Charles Rodriguez <tu_correo@ejemplo.com>"]
+authors = ["Charles Rodriguez <https://github.com/CharlesJRM>"]
 
 packages = [
   { include = "gendiff" },
