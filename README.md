@@ -19,6 +19,14 @@ poetry install
 
 Proyecto para comparar archivos JSON y YML mostrando sus diferencias de manera clara.
 
+## Uso con YAML
+
+Comparar dos archivos YAML:
+
+```bash
+poetry run python -m gendiff.scripts.gendiff tests/fixtures/file1.yml tests/fixtures/file2.yml
+
+
 ## Demostracion ASCIINEMA
 
 Demostración con **Asciinema**:

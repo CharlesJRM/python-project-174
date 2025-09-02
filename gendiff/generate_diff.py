@@ -1,5 +1,7 @@
 import json
 
+from gendiff.parsers import parse_file
+
 
 def format_value(value):
     """Formatea valores para que coincidan con JSON (true/false para bool)."""
@@ -9,13 +11,13 @@ def format_value(value):
 
 
 def generate_diff(file_path1, file_path2):
-    # Leer archivos JSON
-    with open(file_path1) as f1:
-        data1 = json.load(f1)
-    with open(file_path2) as f2:
-        data2 = json.load(f2)
+    """
+    Devuelve un string con las diferencias entre dos archivos.
+    Los archivos pueden ser JSON o YAML (detectados por extensión).
+    """
+    data1 = parse_file(file_path1)
+    data2 = parse_file(file_path2)
 
-    # Todas las claves únicas ordenadas
     all_keys = sorted(set(data1.keys()) | set(data2.keys()))
 
     diff_lines = ["{"]
