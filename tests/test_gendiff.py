@@ -1,6 +1,7 @@
 import os
 from gendiff import generate_diff
 
+
 def test_gendiff_json():
     # Ubicación de los fixtures
     base_path = os.path.join(os.path.dirname(__file__), "fixtures")
