@@ -1,7 +1,5 @@
 {
-  "follow": false,
-  "host": "hexlet.io",
   "timeout": 20,
   "verbose": true,
-  "user": "admin"
+  "host": "hexlet.io"
 }

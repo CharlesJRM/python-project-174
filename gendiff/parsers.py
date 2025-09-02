@@ -3,7 +3,7 @@ import os
 
 try:
     import yaml
-except Exception:  # si no está instalado, avisamos al usarlo
+except ImportError:
     yaml = None
 
 
