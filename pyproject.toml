@@ -9,7 +9,7 @@ packages = [
 ]
 
 [tool.poetry.dependencies]
-python = "^3.13"
+python = "^3.10"
 pyyaml = "^6.0.2"
 
 [tool.poetry.group.dev.dependencies]
@@ -24,4 +24,5 @@ build-backend = "poetry.core.masonry.api"
 [tool.flake8]
 max-line-length = 88
 extend-ignore = ["E203", "W503"]
+
 
