@@ -1,7 +1,9 @@
 import json
 
+
 def format_json(diff):
     return json.dumps(diff, indent=2, ensure_ascii=False)
+
 
 def normalize(value):
     if isinstance(value, bool):
@@ -9,6 +11,7 @@ def normalize(value):
     if value is None:
         return 'null'
     return value
+
 
 def format_value(value):
     if isinstance(value, dict):

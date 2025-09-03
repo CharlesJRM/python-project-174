@@ -16,4 +16,3 @@ def test_gendiff_json():
 
     result = generate_diff(file1, file2)
     assert normalize_diff(result) == normalize_diff(expected)
-
