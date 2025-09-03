@@ -40,40 +40,47 @@ def generate_diff(file_path1, file_path2):
     return '\n'.join(diff_lines)
 
 def build_diff(dict1, dict2):
+    """Construye recursivamente el árbol de diferencias entre dos dicts."""
     keys = sorted(set(dict1.keys()) | set(dict2.keys()))
     diff = []
 
     for key in keys:
-        if key not in dict2:
+        in1 = key in dict1
+        in2 = key in dict2
+
+        if in1 and not in2:
             diff.append({
                 "key": key,
                 "type": "removed",
-                "value": dict1[key]
+                "old_value": dict1[key],
             })
-        elif key not in dict1:
+        elif not in1 and in2:
             diff.append({
                 "key": key,
                 "type": "added",
-                "value": dict2[key]
-            })
-        elif isinstance(dict1[key], dict) and isinstance(dict2[key], dict):
-            diff.append({
-                "key": key,
-                "type": "nested",
-                "children": build_diff(dict1[key], dict2[key])
-            })
-        elif dict1[key] == dict2[key]:
-            diff.append({
-                "key": key,
-                "type": "unchanged",
-                "value": dict1[key]
+                "old_value": dict2[key],  # stylish espera 'old_value'
             })
         else:
-            diff.append({
-                "key": key,
-                "type": "changed",
-                "old_value": dict1[key],
-                "new_value": dict2[key]
-            })
+            v1 = dict1[key]
+            v2 = dict2[key]
+            if isinstance(v1, dict) and isinstance(v2, dict):
+                diff.append({
+                    "key": key,
+                    "type": "nested",
+                    "children": build_diff(v1, v2)
+                })
+            elif v1 == v2:
+                diff.append({
+                    "key": key,
+                    "type": "unchanged",
+                    "old_value": v1,  # stylish espera 'old_value'
+                })
+            else:
+                diff.append({
+                    "key": key,
+                    "type": "changed",
+                    "old_value": v1,
+                    "new_value": v2
+                })
 
     return diff
