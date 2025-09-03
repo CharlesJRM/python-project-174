@@ -31,3 +31,17 @@ def test_generate_diff_yml():
 def test_generate_diff_identical_files():
     file1 = fixtures_path("file1.json")
     assert generate_diff(file1, file1) == "{}"
+
+
+def test_generate_diff_plain():
+    file1 = fixtures_path("file1.json")
+    file2 = fixtures_path("file2.json")
+    diff = generate_diff(file1, file2, "plain")
+    assert "Property" in diff  # test básico
+
+
+def test_generate_diff_json_format():
+    file1 = fixtures_path("file1.json")
+    file2 = fixtures_path("file2.json")
+    diff = generate_diff(file1, file2, "json")
+    assert diff.strip().startswith("{") or diff.strip().startswith("[")
