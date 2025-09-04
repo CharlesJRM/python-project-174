@@ -1,29 +1,42 @@
-name: Python CI
+name: Python package
 
 on:
-  - push
-  - pull_request
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.12'
-        # make depends on uv
+          python-version: "3.10"
+
       - name: Install dependencies
         run: |
-          pip install uv
-          make install
-      - name: Run linter and pytest
-        run: |
-          make check
-      - name: Run test coverage
-        run: |
-          make test-coverage
+          pip install poetry
+          poetry install
+
+      - name: Lint with flake8
+        run: make lint
+
+      - name: Test with pytest
+        run: make test
+
+      - name: Run tests with coverage
+        run: make coverage
+
+      - name: Upload coverage to CodeClimate
+        uses: qltysh/qlty-action/coverage@v2
+        with:
+          token: ${{ secrets.QLTY_COVERAGE_TOKEN }}
+          files: coverage.xml
+
       - name: SonarQubeScan
         uses: SonarSource/sonarqube-scan-action@v5
         env:
