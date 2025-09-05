@@ -11,14 +11,17 @@ def format_plain(diff):
                 walk(item["children"], property_path)
             elif node_type == "added":
                 value = stringify(item["value"])
-                lines.append(f"Property '{property_path}' was added with value: {value}")
+                lines.append(
+                    f"Property '{property_path}' was added with value: {value}"
+                    )
             elif node_type == "removed":
                 lines.append(f"Property '{property_path}' was removed")
             elif node_type == "changed":
                 old_value = stringify(item["old_value"])
                 new_value = stringify(item["new_value"])
                 lines.append(
-                    f"Property '{property_path}' was updated. From {old_value} to {new_value}"
+                    f"Property '{property_path}' was updated."
+                    f"From {old_value} to {new_value}"
                 )
             # unchanged no se muestra en formato plain
 
@@ -31,4 +34,8 @@ def stringify(value):
         return "[complex value]"
     if isinstance(value, str):
         return f"'{value}'"
-    return str(value).lower() if isinstance(value, bool) else str(value)
+    if isinstance(value, bool):
+        return str(value).lower()
+    if value is None:
+        return "null"
+    return str(value)

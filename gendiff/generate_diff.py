@@ -1,9 +1,9 @@
 import json
 import yaml
-from gendiff.utils import to_str
 from gendiff.formatters.stylish import format_stylish
 from gendiff.formatters.plain import format_plain
 from gendiff.formatters.json import format_json
+
 
 def generate_diff(file_path1, file_path2, format_name="stylish"):
     dict1 = parse_file(file_path1)

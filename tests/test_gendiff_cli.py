@@ -8,6 +8,7 @@ FILE2_JSON = FIXTURES_DIR / "file2.json"
 FILE1_YML = FIXTURES_DIR / "file1.yml"
 FILE2_YML = FIXTURES_DIR / "file2.yml"
 
+
 def run_cli(*args):
     """Ejecuta la CLI usando poetry run python -m gendiff.scripts.gendiff."""
     result = subprocess.run(
@@ -16,7 +17,7 @@ def run_cli(*args):
         stderr=subprocess.PIPE,
         encoding="utf-8"
     )
-    assert result.returncode == 0, f"Error en CLI: {result.stderr or 'sin salida de error'}"
+    assert result.returncode == 0, f"Error en CLI:{result.stderr or 'sin salida de error'}"
     return result.stdout.strip()
 
 

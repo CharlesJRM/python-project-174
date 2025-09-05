@@ -41,13 +41,23 @@ def format_stylish(diff, depth=0):
             lines.append(f"{indent}    {key}: {children_text}")
         elif t == "unchanged":
             # Usamos 'value' en lugar de 'old_value'
-            lines.append(f"{indent}    {key}: {to_str(node['value'], depth + 1)}")
+            lines.append(
+                f"{indent}    {key}: {to_str(node['value'], depth + 1)}"
+                )
         elif t == "removed":
-            lines.append(f"{indent}  - {key}: {to_str(node['value'], depth + 1)}")
+            lines.append(
+                f"{indent}  - {key}: {to_str(node['value'], depth + 1)}"
+                )
         elif t == "added":
-            lines.append(f"{indent}  + {key}: {to_str(node['value'], depth + 1)}")
+            lines.append(
+                f"{indent}  + {key}: {to_str(node['value'], depth + 1)}"
+                )
         elif t == "changed":
-            lines.append(f"{indent}  - {key}: {to_str(node['old_value'], depth + 1)}")
-            lines.append(f"{indent}  + {key}: {to_str(node['new_value'], depth + 1)}")
+            lines.append(
+                f"{indent}  - {key}: {to_str(node['old_value'], depth + 1)}"
+                )
+            lines.append(
+                f"{indent}  + {key}: {to_str(node['new_value'], depth + 1)}"
+                )
 
     return "{\n" + "\n".join(lines) + f"\n{indent}}}"

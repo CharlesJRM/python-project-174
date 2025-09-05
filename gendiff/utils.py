@@ -1,5 +1,6 @@
 def to_str(value):
-    """Convierte valores a string estilo JSON (true/false/null en minúsculas)."""
+    """Convierte valores a string estilo JSON
+    (true/false/null en minúsculas)."""
     if value is True:
         return "true"
     if value is False:

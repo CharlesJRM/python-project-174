@@ -13,9 +13,13 @@ poetry install
 
 # Calculadora de Diferencias
 
-![GitHub Actions](https://github.com/CharlesJRM/python-project-174/workflows/Python%20package/badge.svg)
-[![Maintainability](https://api.codeclimate.com/v1/badges/qltcp_tCXHHD06IOhoPNQP/maintainability)](https://codeclimate.com/github/CharlesJRM/python-project-174/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/qltcp_tCXHHD06IOhoPNQP/test_coverage)](https://codeclimate.com/github/CharlesJRM/python-project-174/test_coverage)
+![GitHub Actions](https://github.com/CharlesJRM/python-project-174/actions/workflows/python-app.yml)
+
+[![Maintainability](https://qlty.sh/gh/CharlesJRM/projects/python-project-174/maintainability.svg)](https://qlty.sh/gh/CharlesJRM/projects/python-project-174)
+
+[![Test Coverage](https://codeclimate.com/github/CharlesJRM/python-project-174/test_coverage)]
+
+[![Code Coverage](https://qlty.sh/gh/CharlesJRM/projects/python-project-174/coverage.svg)](https://qlty.sh/gh/CharlesJRM/projects/python-project-174)
 
 Proyecto para comparar archivos JSON y YML mostrando sus diferencias de manera clara.
 
