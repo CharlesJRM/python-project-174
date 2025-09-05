@@ -17,7 +17,9 @@ def run_cli(*args):
         stderr=subprocess.PIPE,
         encoding="utf-8"
     )
-    assert result.returncode == 0, f"Error en CLI:{result.stderr or 'sin salida de error'}"
+    assert result.returncode == 0, (
+        f"Error en CLI: {result.stderr or 'sin salida de error'}"
+    )
     return result.stdout.strip()
 
 
