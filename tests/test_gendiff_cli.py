@@ -39,3 +39,10 @@ def test_cli_stylish_yml_files():
     output = run_cli(str(FILE1_YML), str(FILE2_YML), "--format", "stylish")
     assert isinstance(output, str)
     assert "host" in output or "timeout" in output
+
+
+def test_cli_json_format_with_yml_files():
+    """Verifica que YAML también pueda exportarse en formato JSON."""
+    output = run_cli(str(FILE1_YML), str(FILE2_YML), "--format", "json")
+    parsed = json.loads(output)
+    assert isinstance(parsed, (list, dict))
