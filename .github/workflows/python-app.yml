@@ -18,6 +18,9 @@ jobs:
 
       - name: Install Poetry 1.7.x
         run: pip install "poetry<2.0"
+      
+      - name: Install flake8
+        run: poetry run pip install flake8
 
       - name: Lint with flake8
         run: make lint
