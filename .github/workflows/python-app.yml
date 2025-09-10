@@ -14,10 +14,13 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: "3.10"
+          python-version: ">=3.10,<3.14"
 
       - name: Install Poetry 1.7.x
         run: pip install "poetry<2.0"
+      
+      - name: Install flake8
+        run: poetry run pip install flake8
 
       - name: Lint with flake8
         run: make lint
