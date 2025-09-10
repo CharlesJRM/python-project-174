@@ -69,7 +69,7 @@ poetry run python -m gendiff.scripts.gendiff tests/fixtures/file1.yml tests/fixt
 
 Demostración con **Asciinema**:
 ```markdown
-[![asciicast](https://asciinema.org/a/PENDIENTEID_DE_TU_GRABACION.svg)](https://asciinema.org/a/zcn2CXFd3m4URDu0zYabPiX3T)
+[![asciicast](https://asciinema.org/a/rd2GVsqMOdIKu6064BvzKh6tq.svg)](https://asciinema.org/a/rd2GVsqMOdIKu6064BvzKh6tq)
 
 
 ### Hexlet tests and linter status:
