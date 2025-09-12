@@ -77,8 +77,4 @@ Demostración con **Asciinema**:
 [![Maintainability](https://qlty.sh/gh/CharlesJRM/projects/python-project-174/maintainability.svg)](https://qlty.sh/gh/CharlesJRM/projects/python-project-174)
 
 ### Code Coverage
-[![Code Coverage](https://api.qlty.sh/badges/gh/CharlesJRM/python-project-174/coverage.svg)](https://qlty.sh/gh/CharlesJRM/projects/python-project-174)
-
 [![Code Coverage](https://qlty.sh/gh/CharlesJRM/projects/python-project-174/coverage.svg)](https://qlty.sh/gh/CharlesJRM/projects/python-project-174)
-
-<a href="https://qlty.sh/gh/CharlesJRM/projects/python-project-174"><img src="https://qlty.sh/gh/CharlesJRM/projects/python-project-174/coverage.svg" alt="Code Coverage" /></a>
