@@ -21,12 +21,17 @@ jobs:
 
       - name: Install dependencies
         run: poetry install --with dev
-    
+
       - name: Lint with flake8
         run: make lint
 
       - name: Run tests with coverage
-        run: poetry run pytest --cov=gendiff --cov-report=xml:coverage.xml
+        run: poetry run pytest --cov=gendiff --cov-report=xml:coverage.xml --cov-report=term-missing
+
+      - name: Check coverage.xml content
+        run: |
+          ls -lh coverage.xml
+          head -n 20 coverage.xml
 
       - name: Upload coverage to Qlty.sh
         uses: qltysh/qlty-action/coverage@v2
