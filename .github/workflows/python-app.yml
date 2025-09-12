@@ -34,7 +34,7 @@ jobs:
         run: |
           mkdir -p reports
           poetry run pytest --cov=gendiff --cov-report xml:coverage.xml
-          poetry run coverage-lcov --xml-file coverage.xml --lcov-file reports/lcov.info
+          poetry run coverage-lcov --xml coverage.xml --lcov reports/lcov.info
 
       - name: Upload coverage to CodeClimate
         uses: qltysh/qlty-action/coverage@v2
