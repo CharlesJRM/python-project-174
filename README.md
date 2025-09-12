@@ -75,7 +75,7 @@ Demostración con **Asciinema**:
 [![Actions Status](https://github.com/CharlesJRM/python-project-174/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/CharlesJRM/python-project-174/actions)
 
 # Proyecto calculadora de diferencias github
-![GitHub Actions](https://github.com/CharlesJRM/python-project-174/actions/workflows/python-app.yml)
+[![GitHub Actions](https://github.com/CharlesJRM/python-project-174/actions/workflows/python-app.yml.svg)](https://github.com/CharlesJRM/python-project-174/actions/workflows/python-app.yml)
 
 # Codeclimate
 [![Maintainability](https://qlty.sh/gh/CharlesJRM/projects/python-project-174/maintainability.svg)](https://qlty.sh/gh/CharlesJRM/projects/python-project-174)
