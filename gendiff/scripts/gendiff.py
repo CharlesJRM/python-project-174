@@ -4,7 +4,7 @@ from gendiff.generate_diff import generate_diff
 
 def main():
     parser = argparse.ArgumentParser(
-        description="Compara dos archivos en sus " \
+        description="Compara dos archivos en sus "
         "configuracion y muestra la diferencia."
     )
     parser.add_argument("first_file", help="First file to compare")
