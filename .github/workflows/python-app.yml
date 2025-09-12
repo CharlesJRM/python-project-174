@@ -16,27 +16,19 @@ jobs:
         with:
           python-version: "3.10"
 
-      - name: Install Poetry 1.7.x
+      - name: Install Poetry
         run: pip install "poetry<2.0"
-      
-      - name: Install flake8
-        run: poetry run pip install flake8
-      
+
       - name: Install dependencies
-        run: |
-          pip install poetry
-          poetry install --with dev
+        run: poetry install --with dev
     
       - name: Lint with flake8
         run: make lint
 
-      - name: Test with pytest
-        run: make test
-
       - name: Run tests with coverage
-        run: poetry run pytest --cov=gendiff --cov-report xml
+        run: poetry run pytest --cov=gendiff --cov-report=xml:coverage.xml
 
-      - name: Upload coverage to CodeClimate
+      - name: Upload coverage to Qlty.sh
         uses: qltysh/qlty-action/coverage@v2
         with:
           token: ${{ secrets.QLTY_COVERAGE_TOKEN }}
