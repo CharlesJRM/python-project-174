@@ -1,5 +1,3 @@
-# gendiff/formatters/plain.py
-
 def format_plain(diff):
     """Formatea el árbol 'diff' en texto plano legible."""
     lines = []

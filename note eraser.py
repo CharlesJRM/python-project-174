@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 import argparse
 import sys
 from gendiff.generate_diff import generate_diff

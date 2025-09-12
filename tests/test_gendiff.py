@@ -2,7 +2,7 @@ from gendiff.generate_diff import generate_diff
 
 
 def normalize_diff(diff):
-    """Quita espacios extras para que la comparación sea más flexible."""
+    """Quita espacios extras para que la comparación sea más facil."""
     return [line.strip() for line in diff.splitlines() if line.strip()]
 
 
