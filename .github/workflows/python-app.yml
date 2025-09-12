@@ -37,14 +37,8 @@ jobs:
         run: poetry run pytest --cov=gendiff --cov-report xml
 
       - name: Upload coverage to CodeClimate
-        uses: paambaati/codeclimate-action@v3.2.0
-        env:
-            CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
-        with:
-            coverageLocations: coverage.xml:coverage.py
-
-      - name: Upload coverage to CodeClimate
         uses: qltysh/qlty-action/coverage@v2
         with:
           token: ${{ secrets.QLTY_COVERAGE_TOKEN }}
           files: coverage.xml
+
