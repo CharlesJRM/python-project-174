@@ -1,0 +1,91 @@
+Listado de rutas de carpetas
+El n£mero de serie del volumen es B25E-6D86
+C:.
+³   'str'
+³   .coverage
+³   assert
+³   como
+³   coverage.xml
+³   demo.cast
+³   estructura.txt
+³   file1.json
+³   file2.json
+³   Makefile
+³   note eraser.py
+³   null
+³   poetry.lock
+³   pyproject.toml
+³   README.md
+³   [complex
+³   
+ÃÄÄÄ.github
+³   ÀÄÄÄworkflows
+³           hexlet-check.yml
+³           python-app.yml
+³           README.md
+³           
+ÃÄÄÄ.pytest_cache
+³   ³   .gitignore
+³   ³   CACHEDIR.TAG
+³   ³   README.md
+³   ³   
+³   ÀÄÄÄv
+³       ÀÄÄÄcache
+³               nodeids
+³               
+ÃÄÄÄgendiff
+³   ³   .gitkeep
+³   ³   diff_builder.py
+³   ³   generate_diff.py
+³   ³   parsers.py
+³   ³   utils.py
+³   ³   __init__.py
+³   ³   
+³   ÃÄÄÄformatters
+³   ³   ³   json.py
+³   ³   ³   plain.py
+³   ³   ³   stylish.py
+³   ³   ³   __init__.py
+³   ³   ³   
+³   ³   ÀÄÄÄ__pycache__
+³   ³           json.cpython-313.pyc
+³   ³           plain.cpython-313.pyc
+³   ³           stylish.cpython-313.pyc
+³   ³           __init__.cpython-313.pyc
+³   ³           
+³   ÃÄÄÄscripts
+³   ³   ³   gendiff.py
+³   ³   ³   
+³   ³   ÀÄÄÄ__pycache__
+³   ³           gendiff.cpython-313.pyc
+³   ³           
+³   ÀÄÄÄ__pycache__
+³           generate_diff.cpython-313.pyc
+³           __init__.cpython-313.pyc
+³           
+ÃÄÄÄreports
+³       lcov.info
+³       
+ÀÄÄÄtests
+    ³   file1_expected_output.txt
+    ³   test_gendiff.py
+    ³   test_gendiff_cli.py
+    ³   test_gendiff_yml.py
+    ³   test_generate_diff.py
+    ³   
+    ÃÄÄÄfixtures
+    ³       expected.txt
+    ³       expected_plain.txt
+    ³       expected_stylish.txt
+    ³       expected_yml.txt
+    ³       file1.json
+    ³       file1.yml
+    ³       file2.json
+    ³       file2.yml
+    ³       
+    ÀÄÄÄ__pycache__
+            test_gendiff.cpython-313-pytest-8.4.1.pyc
+            test_gendiff_cli.cpython-313-pytest-8.4.1.pyc
+            test_gendiff_yml.cpython-313-pytest-8.4.1.pyc
+            test_generate_diff.cpython-313-pytest-8.4.1.pyc
+            
