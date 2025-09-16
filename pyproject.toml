@@ -19,6 +19,7 @@ gendiff = "gendiff.scripts.gendiff:main"
 pytest = "^8.4.1"
 flake8 = ">=6.0.0,<7.0.0"
 pytest-cov = "^6.2.1"
+coverage = "^7.10.6"
 
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
