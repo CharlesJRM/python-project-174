@@ -4,6 +4,7 @@ on:
   push:
     branches: [ "main" ]
   pull_request:
+    branches: [ "main" ]
 
 jobs:
   build:
@@ -16,25 +17,31 @@ jobs:
         with:
           python-version: "3.10"
 
-      - name: Install Poetry
+      - name: Install Poetry <2.0
         run: pip install "poetry<2.0"
 
-      - name: Install dependencies
+      - name: Install dependencies (including dev)
         run: poetry install --with dev
+
+      - name: Ensure coverage 6.5 (force compatible version)
+        run: poetry run pip install --upgrade coverage==6.5.0
 
       - name: Lint with flake8
         run: make lint
 
-      - name: Run tests with coverage
-        run: poetry run pytest --cov=gendiff --cov-report=xml:coverage.xml --cov-report=term-missing
+      - name: Run tests & produce coverage .coverage
+        run: poetry run coverage run -m pytest
 
-      - name: Check coverage.xml content
+      - name: Produce LCOV report (reports/lcov.info)
+        run: poetry run coverage lcov -o reports/lcov.info
+
+      - name: Check LCOV
         run: |
-          ls -lh coverage.xml
-          head -n 20 coverage.xml
+          ls -lh reports || true
+          sed -n '1,20p' reports/lcov.info || true
 
       - name: Upload coverage to Qlty.sh
         uses: qltysh/qlty-action/coverage@v2
         with:
           token: ${{ secrets.QLTY_COVERAGE_TOKEN }}
-          files: coverage.xml
+          files: reports/lcov.info
