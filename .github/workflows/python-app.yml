@@ -30,7 +30,7 @@ jobs:
         run: make lint
 
       - name: Run tests & produce coverage .coverage
-        run: poetry run coverage run -m pytest
+        run: poetry run pytest --cov=gendiff --cov-report=xml:coverage.xml --cov-report=term-missing
 
       - name: Produce LCOV report (reports/lcov.info)
         run: poetry run coverage lcov -o reports/lcov.info
