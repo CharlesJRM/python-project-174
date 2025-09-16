@@ -40,6 +40,9 @@ jobs:
           ls -lh reports || true
           sed -n '1,20p' reports/lcov.info || true
 
+      - name: List fixture files
+        run: ls -R tests/fixtures
+
       - name: Upload coverage to Qlty.sh
         uses: qltysh/qlty-action/coverage@v2
         with:
