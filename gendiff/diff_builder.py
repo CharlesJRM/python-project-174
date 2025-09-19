@@ -1,8 +1,4 @@
 def build_diff(data1, data2):
-    """
-    Construye una estructura lista que describe las diferencias
-    entre data1 y data2. para diccionarios.
-    """
     keys = sorted(set(data1.keys()) | set(data2.keys()))
     diff = []
 
