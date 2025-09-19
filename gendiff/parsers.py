@@ -8,10 +8,6 @@ except ImportError:
 
 
 def parse_file(file_path):
-    """
-    Detecta formato por extensión y devuelve un diccionario
-    para JSON (.json) y YAML (.yml, .yaml).
-    """
     ext = os.path.splitext(file_path)[1].lower()
     with open(file_path, "r", encoding="utf-8") as f:
         if ext == ".json":
